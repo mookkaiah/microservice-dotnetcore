@@ -8,35 +8,25 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\mvelu\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\mvelu\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\MyDocuments\\TechLearn\\AWS\\practices\\MyAwsPractices-Repository\\cfn\\ECR-EC2-ALB-AutoScaling\\DotCoreApp\\mathservice\\mathservice.csproj",
+      "projectUniqueName": "C:\\SourceRepos\\GitHub\\microservice-dotnetcore\\mathservice.csproj",
       "projectName": "mathservice",
-      "projectPath": "D:\\MyDocuments\\TechLearn\\AWS\\practices\\MyAwsPractices-Repository\\cfn\\ECR-EC2-ALB-AutoScaling\\DotCoreApp\\mathservice\\mathservice.csproj",
+      "projectPath": "C:\\SourceRepos\\GitHub\\microservice-dotnetcore\\mathservice.csproj",
       "packagesPath": "C:\\Users\\mvelu\\.nuget\\packages\\",
-      "outputPath": "D:\\MyDocuments\\TechLearn\\AWS\\practices\\MyAwsPractices-Repository\\cfn\\ECR-EC2-ALB-AutoScaling\\DotCoreApp\\mathservice\\obj\\",
+      "outputPath": "C:\\SourceRepos\\GitHub\\microservice-dotnetcore\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\mvelu\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\mvelu\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {},
-        "https://nexus.globalblue.com/service/local/nuget/nugetgroup": {}
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp3.1": {
@@ -69,7 +59,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
       }
     }
   }
