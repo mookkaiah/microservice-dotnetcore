@@ -37,7 +37,7 @@ pipeline {
 		
 		stage('Build'){
 			steps{
-				bat "dotnet build ..\\mathservice.csproj --configuration Release
+				bat "dotnet build ..\\mathservice.csproj --configuration Release"
 				echo 'Dev-branch- successfully built' 
 			}
 		}
