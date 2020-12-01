@@ -23,21 +23,21 @@ pipeline {
 		
 		stage('Restore packages'){
 			steps{
-				bat "dotnet restore ..\\mathservice.csproj"
+				bat "dotnet restore mathservice.csproj"
 				echo 'Dev-branch- successfully restored' 
 			}
 		}
 		
 		stage('Clean'){
 			steps{
-				bat "dotnet clean ..\\mathservice.csproj"
+				bat "dotnet clean mathservice.csproj"
 				echo 'Dev-branch- successfully get cleaned' 
 			}
 		}
 		
 		stage('Build'){
 			steps{
-				bat "dotnet build ..\\mathservice.csproj --configuration Release"
+				bat "dotnet build mathservice.csproj --configuration Release"
 				echo 'Dev-branch- successfully built' 
 			}
 		}
