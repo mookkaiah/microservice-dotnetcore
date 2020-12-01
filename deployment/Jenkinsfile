@@ -1,10 +1,50 @@
 #!/usr/bin/env groovy
+
+
 pipeline {
     agent any 
+	environment {
+		dotnet = 'C:\\\Program Files (x86)\\\dotnet\\'
+	}
+	
     stages {
         stage('Stage 1') {
             steps {
                 echo 'Dev-branch- Jenkinsfile practice - Hello world! - triggered by web hooks' 
+            }
+        }
+		
+		stage('Checkout'){
+			steps {
+				git credentialsId: 'mookkaiah', url: 'https://github.com/mookkaiah/microservice-dotnetcore.git', branch: 'dev'
+				echo 'Dev-branch- successfully checked out' 
+			}
+		}
+		
+		stage('Restore packages'){
+			steps{
+				bat "dotnet restore ..\\mathservice.csproj"
+				echo 'Dev-branch- successfully restored' 
+			}
+		}
+		
+		stage('Clean'){
+			steps{
+				bat "dotnet clean ..\\mathservice.csproj"
+				echo 'Dev-branch- successfully get cleaned' 
+			}
+		}
+		
+		stage('Build'){
+			steps{
+				bat "dotnet build ..\\mathservice.csproj --configuration Release
+				echo 'Dev-branch- successfully built' 
+			}
+		}
+		
+		stage('Stage final') {
+            steps {
+                echo 'Dev-branch- deployment completed' 
             }
         }
     }
