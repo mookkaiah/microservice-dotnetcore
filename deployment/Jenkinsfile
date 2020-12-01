@@ -1,5 +1,7 @@
 #!/usr/bin/env groovy
 
+def version
+def serviceName
 
 pipeline {
     agent any 
@@ -8,9 +10,15 @@ pipeline {
 	}
 	
     stages {
-        stage('Stage 1') {
+        stage('Initialize') {
             steps {
                 echo 'Dev-branch- Jenkinsfile practice - Hello world! - triggered by web hooks' 
+				
+				version = "${env.GIT_COMMIT[0..6]}-${env.BUILD_NUMBER}"
+				serviceName = env.GIT_URL.replace(/^.*\/([^\/]+?).git$/, '$1')
+				
+				echo 'version' + version
+				echo 'serviceName' + serviceName
             }
         }
 		
