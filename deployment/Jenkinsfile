@@ -24,35 +24,45 @@ pipeline {
 		
 		stage('Checkout'){
 			steps {
-				git credentialsId: 'ASHRITH', url: env.GIT_URL, branch: env.GIT_BRANCH.toLowerCase()
-				echo  + " ${env.GIT_BRANCH.toLowerCase()} : Dev-branch- successfully checked out" 
+				script {
+					git credentialsId: 'ASHRITH', url: env.GIT_URL, branch: env.GIT_BRANCH.toLowerCase()
+					echo  + " ${env.GIT_BRANCH.toLowerCase()} : Dev-branch- successfully checked out" 
+				}
 			}
 		}
 		
 		stage('Restore packages'){
 			steps{
-				bat "dotnet restore mathservice.csproj"
-				echo 'Dev-branch- successfully restored' 
+				script {
+					bat "dotnet restore mathservice.csproj"
+					echo 'Dev-branch- successfully restored' 
+				}
 			}
 		}
 		
 		stage('Clean'){
 			steps{
-				bat "dotnet clean mathservice.csproj"
-				echo 'Dev-branch- successfully get cleaned' 
+				script {
+					bat "dotnet clean mathservice.csproj"
+					echo 'Dev-branch- successfully get cleaned' 
+				}
 			}
 		}
 		
 		stage('Build'){
 			steps{
-				build('mathservice')
-				echo 'Dev-branch- successfully built' 
+				script {
+					build('mathservice')
+					echo 'Dev-branch- successfully built' 
+				}
 			}
 		}
 		
 		stage('Stage final') {
             steps {
-                echo 'Dev-branch- deployment completed' 
+				script {
+                	echo 'Dev-branch- deployment completed' 
+				}
             }
         }
     }
