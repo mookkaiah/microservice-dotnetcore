@@ -24,8 +24,8 @@ pipeline {
 		
 		stage('Checkout'){
 			steps {
-				git credentialsId: 'ASHRITH', url: 'https://github.com/mookkaiah/microservice-dotnetcore.git', branch: 'dev'
-				echo 'Dev-branch- successfully checked out' 
+				git credentialsId: 'ASHRITH', url: env.GIT_URL, branch: env.GIT_BRANCH.toLowerCase()
+				echo  + " ${env.GIT_BRANCH.toLowerCase()} : Dev-branch- successfully checked out" 
 			}
 		}
 		
@@ -45,7 +45,7 @@ pipeline {
 		
 		stage('Build'){
 			steps{
-				bat "dotnet build mathservice.csproj --configuration Release"
+				build('mathservice')
 				echo 'Dev-branch- successfully built' 
 			}
 		}
@@ -56,4 +56,16 @@ pipeline {
             }
         }
     }
+}
+
+def build(String project){
+	sh """
+		dotnet publish ${project} -c Release -o ${env.WORKSPACE}/${project}-build
+		
+		cp ${env.WORKSPACE}/deployment/${project}/* ${env.WORKSPACE}/${project}-build
+
+		mkdir ${env.WORKSPACE}/${project}-build/lib
+		
+		tar -vczf ${env.WORKSPACE}/${project}.tar.gz -c ${env.WORKSPACE}/${project}-build .
+	"""
 }
