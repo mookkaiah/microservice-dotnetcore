@@ -27,7 +27,7 @@ pipeline {
 				script {
 					echo 'URL : ' +  env.GIT_URL
 					echo 'branch : ' +  env.GIT_BRANCH.toLowerCase()
-					git credentialsId: 'common-user', url: env.GIT_URL, branch: env.GIT_BRANCH.toLowerCase()
+					git credentialsId: 'ASHRITH', url: env.GIT_URL, branch: env.GIT_BRANCH.toLowerCase()
 					echo  + " ${env.GIT_BRANCH.toLowerCase()} : Dev-branch- successfully checked out" 
 				}
 			}
