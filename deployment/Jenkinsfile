@@ -23,7 +23,7 @@ pipeline {
 	stage('Checkout'){
             steps {
 		script {
-			git credentialsId: 'checkoutuser', url: 'https://github.com/mookkaiah/microservice-dotnetcore.git', branch: 'dev'
+			git credentialsId: 'micro-service-user', url: 'https://github.com/mookkaiah/microservice-dotnetcore.git', branch: 'dev'
 			}
 		}
             }
