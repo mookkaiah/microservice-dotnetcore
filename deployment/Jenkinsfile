@@ -64,8 +64,10 @@ pipeline {
 }
 
 def build(String project){
+	echo "dotnet publish ${project} -c Release -o ${env.WORKSPACE}/${project}-build"
+	
 	sh """
-		dotnet publish ${project} -c Release -o ${env.WORKSPACE}/${project}-build
+		bat "dotnet publish ${project} -c Release -o ${env.WORKSPACE}/${project}-build"
 		
 		cp ${env.WORKSPACE}/deployment/${project}/* ${env.WORKSPACE}/${project}-build
 
