@@ -14,8 +14,11 @@ pipeline {
             steps {
 		script {
 
+			echo 'Dev-branch- Jenkinsfile practice - Hello world! - triggered by web hooks' 
 			version = "${env.GIT_COMMIT[0..6]}-${env.BUILD_NUMBER}"
 			serviceName = env.GIT_URL.replaceFirst(/^.*\/([^\/]+?).git$/, '$1')
+			echo 'version : ' + version
+			echo 'serviceName : ' + serviceName
 		}
             }
         }
