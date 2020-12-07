@@ -33,6 +33,25 @@ pipeline {
 		}
             }
         }
+	    
+	stage('Restore packages'){
+            steps{
+		script {
+			bat "dotnet restore mathservice.csproj"
+			echo 'Dev-branch- successfully restored' 
+			}
+		}
+	}
+		
+	stage('Clean'){
+            steps{
+		script {
+			bat "dotnet clean mathservice.csproj"
+			echo 'Dev-branch- successfully get cleaned' 
+			}
+		}
+	}
+	    
     }
 }
 
