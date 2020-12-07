@@ -55,7 +55,7 @@ pipeline {
 	stage('Build'){
             steps{
 		script {
-			build('mathservice')
+			build('mathservice.csproj')
 			echo 'Dev-branch- successfully built' 
 			}
 		}
