@@ -13,11 +13,10 @@ pipeline {
         stage('Initialize') {
             steps {
 				script {
-					echo 'Dev-branch- Jenkinsfile practice - Hello world! - triggered by web hooks' 
+					
 					version = "${env.GIT_COMMIT[0..6]}-${env.BUILD_NUMBER}"
 					serviceName = env.GIT_URL.replaceFirst(/^.*\/([^\/]+?).git$/, '$1')
-					echo 'version : ' + version
-					echo 'serviceName : ' + serviceName
+					
 				}
             }
         }
@@ -25,10 +24,9 @@ pipeline {
 		stage('Checkout'){
 			steps {
 				script {
-					echo 'URL : ' +  env.GIT_URL
-					echo 'branch : ' +  env.GIT_BRANCH.toLowerCase()
+					
 					git credentialsId: 'checkoutuser', url: 'https://github.com/mookkaiah/microservice-dotnetcore.git', branch: 'dev'
-					echo  + " ${env.GIT_BRANCH.toLowerCase()} : Dev-branch- successfully checked out" 
+					
 				}
 			}
 		}
