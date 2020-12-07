@@ -67,4 +67,10 @@ def build(String project){
 	echo "dotnet publish ${project} -c Release -o ${env.WORKSPACE}/${project}-build"
 	bat "dotnet publish ${project} -c Release -o ${env.WORKSPACE}/${project}-build"	
 	
+	bat "cp ${env.WORKSPACE}/deployment/${project}/* ${env.WORKSPACE}/${project}-build"
+
+	bat "mkdir ${env.WORKSPACE}/${project}-build/lib"
+		
+	bat "tar -vczf ${env.WORKSPACE}/${project}.tar.gz -c ${env.WORKSPACE}/${project}-build ."
+	
 }
