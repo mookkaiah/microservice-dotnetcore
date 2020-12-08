@@ -68,5 +68,6 @@ def build(String project){
 	
 	powershell """
 		dotnet publish ${project} -c Release -o ${env.WORKSPACE}/${project}-build
+		cp ${env.WORKSPACE}/deployment/${project}/* ${env.WORKSPACE}/${project}-build
 	"""
 }
