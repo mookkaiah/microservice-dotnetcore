@@ -73,5 +73,8 @@ def build(String project){
 	powershell """
 		dotnet publish ${project}.csproj -c Release -o ${env.WORKSPACE}/${project}-build
 		cp ${env.WORKSPACE}/deployment/${project}/* ${env.WORKSPACE}/${project}-build
+		mkdir ${env.WORKSPACE}/${project}-build/lib
+		
+		tar -vczf ${env.WORKSPACE}/${project}.tar.gz -c ${env.WORKSPACE}/${project}-build .
 	"""
 }
