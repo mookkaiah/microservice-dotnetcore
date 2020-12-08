@@ -65,12 +65,15 @@ pipeline {
 
 def build(String project){
 	echo "dotnet publish ${project} -c Release -o ${env.WORKSPACE}/${project}-build"
-	bat "dotnet publish ${project} -c Release -o ${env.WORKSPACE}/${project}-build"	
 	
-	bat "cp ${env.WORKSPACE}/deployment/${project}/* ${env.WORKSPACE}/${project}-build"
-
-	bat "mkdir ${env.WORKSPACE}/${project}-build/lib"
+	sh """
+		dotnet publish ${project} -c Release -o ${env.WORKSPACE}/${project}-build
 		
-	bat "tar -vczf ${env.WORKSPACE}/${project}.tar.gz -c ${env.WORKSPACE}/${project}-build ."
+		cp ${env.WORKSPACE}/deployment/${project}/* ${env.WORKSPACE}/${project}-build
+
+		mkdir ${env.WORKSPACE}/${project}-build/lib
+		
+		tar -vczf ${env.WORKSPACE}/${project}.tar.gz -c ${env.WORKSPACE}/${project}-build .
+	"""
 	
 }
