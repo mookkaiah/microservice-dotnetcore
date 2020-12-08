@@ -66,5 +66,7 @@ pipeline {
 def build(String project){
 	echo "dotnet publish ${project} -c Release -o ${env.WORKSPACE}/${project}-build"
 	
-	powershell dotnet publish ${project} -c Release -o ${env.WORKSPACE}/${project}-build
+	powershell """
+		dotnet publish ${project} -c Release -o ${env.WORKSPACE}/${project}-build
+	"""
 }
