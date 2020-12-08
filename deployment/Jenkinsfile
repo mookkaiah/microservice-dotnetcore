@@ -56,7 +56,7 @@ pipeline {
 	stage('Build'){
             steps{
 		script {
-			build('mathservice.csproj')
+			build('mathservice')
 			echo 'Dev-branch- successfully built' 
 			}
 		}
@@ -65,7 +65,7 @@ pipeline {
 }
 
 def build(String project){
-	echo "dotnet publish ${project} -c Release -o ${env.WORKSPACE}/${project}-build"
+	echo "dotnet publish ${project}.csproj -c Release -o ${env.WORKSPACE}/${project}-build"
 	
 	echo "${env.WORKSPACE}/deployment/${project}/"
 	echo "${env.WORKSPACE}/${project}-build"
